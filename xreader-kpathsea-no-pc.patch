@@ -1,0 +1,11 @@
+--- xreader-2.6.0/meson.build.orig	2020-05-12 11:17:16.000000000 +0200
++++ xreader-2.6.0/meson.build	2020-05-17 21:22:37.769986192 +0200
+@@ -60,7 +60,7 @@
+     djvu = dependency('ddjvuapi', version: '>= 3.5.17')
+ endif
+ if get_option('dvi')
+-    kpathsea = dependency('kpathsea')
++    kpathsea = cc.find_library('kpathsea')
+     spectre = dependency('libspectre', version: '>= 0.2.0')
+     if get_option('t1lib')
+         t1lib = cc.find_library('t1', required: false)
