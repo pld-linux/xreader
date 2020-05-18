@@ -133,7 +133,7 @@ Summary(pl.UTF-8):	Przeglądanie dokumentów ePub w przeglądarce X-Apps Documen
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	libxml2 >= 1:2.5.0
-Requires:	mathjax
+Requires:	MathJax-base
 
 %description backend-epub
 View ePub documents with X-Apps Document Reader.
@@ -196,7 +196,7 @@ Przeglądanie dokumentów XPS w przeglądarce X-Apps Document Reader.
 	-Dhelp_files=true \
 	-Dintrospection=true \
 	-Dpixbuf=true \
-	-Dmathjax-directory=%{_datadir}/mathjax \
+	-Dmathjax-directory=%{_datadir}/MathJax \
 	-Dt1lib=true
 
 %ninja_build -C build
