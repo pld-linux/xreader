@@ -2,7 +2,7 @@ Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
 Version:	2.6.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/releases
@@ -205,6 +205,9 @@ Przeglądanie dokumentów XPS w przeglądarce X-Apps Document Reader.
 rm -rf $RPM_BUILD_ROOT
 
 %meson_install -C build
+
+# not supported by glibc 2.31
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{ab,ie}
 
 %find_lang %{name} --with-gnome
 
