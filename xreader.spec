@@ -91,9 +91,7 @@ Pliki nagłówkowe bibliotek X-Apps Document Reader.
 Summary:	API documentation files for X-Apps Document Reader libraries
 Summary(pl.UTF-8):	Dokumentacja API bibliotek X-Apps Document Reader
 Group:		Documentation
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation files for X-Apps Document Reader libraries.
