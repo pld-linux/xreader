@@ -1,7 +1,7 @@
---- xreader-2.6.0/meson.build.orig	2020-05-12 11:17:16.000000000 +0200
-+++ xreader-2.6.0/meson.build	2020-05-17 21:22:37.769986192 +0200
-@@ -60,7 +60,7 @@
-     djvu = dependency('ddjvuapi', version: '>= 3.5.17')
+--- xreader-2.8.3/meson.build.orig	2023-06-16 19:13:12.439883975 +0200
++++ xreader-2.8.3/meson.build	2023-06-16 19:46:56.882249963 +0200
+@@ -71,7 +71,7 @@ if get_option('ps')
+     xreader_mime_types += 'application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;'
  endif
  if get_option('dvi')
 -    kpathsea = dependency('kpathsea')

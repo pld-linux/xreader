@@ -1,16 +1,17 @@
 Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
-Version:	2.6.0
-Release:	2
+Version:	2.8.3
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/releases
 Source0:	https://github.com/linuxmint/xreader/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	6d8b002756e7f1168ae53eb682e17232
+# Source0-md5:	d53936b6474f12d88740ac24b06e8b16
 # remove when we get kpathsea.pc in texlive
 Patch0:		%{name}-kpathsea-no-pc.patch
 Patch1:		%{name}-doc.patch
+Patch2:		%{name}-meson.patch
 URL:		https://github.com/linuxmint/xreader
 BuildRequires:	appstream-glib
 BuildRequires:	djvulibre-devel >= 3.5.17
@@ -19,6 +20,7 @@ BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	gtk-doc
 BuildRequires:	gtk-webkit4-devel >= 2.4.3
+BuildRequires:	intltool
 BuildRequires:	kpathsea-devel
 BuildRequires:	libgxps-devel >= 0.2.1
 # not used actually
@@ -33,7 +35,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	poppler-glib-devel
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	t1lib-devel
-BuildRequires:	xapps-devel >= 1.1.0
+BuildRequires:	xapps-devel >= 1.9.0
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
@@ -46,7 +48,7 @@ Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gsettings-desktop-schemas
 Requires:	hicolor-icon-theme
 Requires:	shared-mime-info
-Requires:	xapps >= 1.1.0
+Requires:	xapps >= 1.9.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -183,6 +185,7 @@ Przeglądanie dokumentów XPS w przeglądarce X-Apps Document Reader.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %meson build \
