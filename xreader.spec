@@ -1,25 +1,26 @@
 Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
-Version:	2.8.3
+Version:	3.8.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/releases
 Source0:	https://github.com/linuxmint/xreader/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	d53936b6474f12d88740ac24b06e8b16
+# Source0-md5:	2cdefa53bc0e28d5080314b34118c4de
 # remove when we get kpathsea.pc in texlive
 Patch0:		%{name}-kpathsea-no-pc.patch
 Patch1:		%{name}-doc.patch
 Patch2:		%{name}-meson.patch
 URL:		https://github.com/linuxmint/xreader
 BuildRequires:	appstream-glib
+BuildRequires:	cairo-devel >= 1.14.0
 BuildRequires:	djvulibre-devel >= 3.5.17
 BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	gtk-doc
-BuildRequires:	gtk-webkit4-devel >= 2.4.3
+BuildRequires:	gtk-webkit4.1-devel >= 2.34
 BuildRequires:	intltool
 BuildRequires:	kpathsea-devel
 BuildRequires:	libgxps-devel >= 0.2.1
@@ -35,7 +36,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	poppler-glib-devel
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	t1lib-devel
-BuildRequires:	xapps-devel >= 1.9.0
+BuildRequires:	xapps-devel >= 2.5.0
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
@@ -48,7 +49,7 @@ Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gsettings-desktop-schemas
 Requires:	hicolor-icon-theme
 Requires:	shared-mime-info
-Requires:	xapps >= 1.9.0
+Requires:	xapps >= 2.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,10 +65,10 @@ PostScript.
 Summary:	X-Apps Document Reader shared libraries
 Summary(pl.UTF-8):	Biblioteki współdzielone X-Apps Document Reader
 Group:		X11/Libraries
-Requires:	cairo-devel >= 1.14.0
+Requires:	cairo >= 1.14.0
 Requires:	glib2 >= 1:2.36.0
 Requires:	gtk+3 >= 3.14.0
-Requires:	gtk-webkit4 >= 2.4.3
+Requires:	gtk-webkit4.1 >= 2.34
 
 %description libs
 X-Apps Document Reader shared libraries.
@@ -230,7 +231,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING README debian/{changelog,copyright}
+%doc AUTHORS COPYING README.md debian/{changelog,copyright}
 %attr(755,root,root) %{_bindir}/xreader
 %attr(755,root,root) %{_bindir}/xreader-previewer
 %attr(755,root,root) %{_bindir}/xreader-thumbnailer
@@ -245,9 +246,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/xreader/3/backends/libtiffdocument.so
 %{_libdir}/xreader/3/backends/tiffdocument.xreader-backend
 %{_datadir}/xreader
-%{_datadir}/appdata/xreader.appdata.xml
 %{_datadir}/dbus-1/services/org.x.reader.Daemon.service
 %{_datadir}/glib-2.0/schemas/org.x.reader.gschema.xml
+%{_datadir}/metainfo/xreader.appdata.xml
 %{_datadir}/thumbnailers/xreader.thumbnailer
 %{_desktopdir}/xreader.desktop
 %{_iconsdir}/hicolor/*x*/apps/xreader.png

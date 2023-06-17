@@ -1,7 +1,7 @@
---- xreader-2.8.3/meson.build.orig	2023-06-16 19:13:12.439883975 +0200
-+++ xreader-2.8.3/meson.build	2023-06-16 19:46:56.882249963 +0200
+--- xreader-3.8.1/meson.build.orig	2023-06-16 21:31:57.698115514 +0200
++++ xreader-3.8.1/meson.build	2023-06-16 21:32:57.794456611 +0200
 @@ -71,7 +71,7 @@ if get_option('ps')
-     xreader_mime_types += 'application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;'
+     xreader_mime_types += 'application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;application/illustrator;'
  endif
  if get_option('dvi')
 -    kpathsea = dependency('kpathsea')
