@@ -208,8 +208,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %meson_install -C build
 
-# not supported by glibc 2.31
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{ab,ie}
+# not supported by glibc 2.37
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{ie,zgh}
 
 %find_lang %{name} --with-gnome
 
