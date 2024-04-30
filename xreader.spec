@@ -1,13 +1,13 @@
 Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
-Version:	3.8.1
+Version:	4.0.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-#Source0Download: https://github.com/linuxmint/xreader/releases
+#Source0Download: https://github.com/linuxmint/xreader/tags
 Source0:	https://github.com/linuxmint/xreader/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	2cdefa53bc0e28d5080314b34118c4de
+# Source0-md5:	904d8f7c2732d833ff365a4ad18a6cf7
 # remove when we get kpathsea.pc in texlive
 Patch0:		%{name}-kpathsea-no-pc.patch
 Patch1:		%{name}-doc.patch
@@ -23,6 +23,7 @@ BuildRequires:	gtk-doc
 BuildRequires:	gtk-webkit4.1-devel >= 2.34
 BuildRequires:	intltool
 BuildRequires:	kpathsea-devel
+BuildRequires:	libarchive-devel >= 3.6.0
 BuildRequires:	libgxps-devel >= 0.2.1
 # not used actually
 #BuildRequires:	libsecret-devel >= 0.5
@@ -48,6 +49,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gsettings-desktop-schemas
 Requires:	hicolor-icon-theme
+Requires:	libarchive >= 3.6.0
 Requires:	shared-mime-info
 Requires:	xapps >= 2.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
