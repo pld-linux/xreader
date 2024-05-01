@@ -2,7 +2,7 @@ Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
 Version:	4.0.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/tags
@@ -210,8 +210,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %meson_install -C build
 
-# not supported by glibc 2.37
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{ie,zgh}
+# not supported by glibc 2.39
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
 %find_lang %{name} --with-gnome
 
