@@ -1,13 +1,13 @@
 Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
-Version:	4.2.3
+Version:	4.2.6
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/tags
 Source0:	https://github.com/linuxmint/xreader/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	f83d4b4f7b9ebd6a917623a86f68dd24
+# Source0-md5:	434ca1cf1477b2688f3af6142199f0eb
 # remove when we get kpathsea.pc in texlive
 Patch0:		%{name}-kpathsea-no-pc.patch
 Patch1:		%{name}-doc.patch
@@ -35,7 +35,7 @@ BuildRequires:	meson >= 0.46
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	poppler-glib-devel
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	t1lib-devel
 BuildRequires:	xapps-devel >= 2.5.0
 BuildRequires:	xorg-lib-libICE-devel
@@ -191,7 +191,7 @@ Przeglądanie dokumentów XPS w przeglądarce X-Apps Document Reader.
 %patch -P2 -p1
 
 %build
-%meson build \
+%meson \
 	--default-library=shared \
 	-Dcomics=true \
 	-Ddocs=true \
@@ -203,12 +203,12 @@ Przeglądanie dokumentów XPS w przeglądarce X-Apps Document Reader.
 	-Dmathjax-directory=%{_datadir}/MathJax \
 	-Dt1lib=true
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%meson_install -C build
+%meson_install
 
 # not supported by glibc 2.39
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{ie,jv}
