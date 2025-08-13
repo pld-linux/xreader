@@ -1,13 +1,13 @@
 Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
-Version:	4.2.6
-Release:	2
+Version:	4.2.9
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/tags
 Source0:	https://github.com/linuxmint/xreader/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	434ca1cf1477b2688f3af6142199f0eb
+# Source0-md5:	188107ff58405f5ef479ad7f99436ed6
 # remove when we get kpathsea.pc in texlive
 Patch0:		%{name}-kpathsea-no-pc.patch
 Patch1:		%{name}-doc.patch
