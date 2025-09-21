@@ -2,7 +2,7 @@ Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
 Version:	4.2.9
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/tags
