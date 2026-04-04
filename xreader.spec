@@ -1,19 +1,18 @@
 Summary:	Simple document viewer
 Summary(pl.UTF-8):	Prosta przeglądarka dokumentów
 Name:		xreader
-Version:	4.2.9
-Release:	3
+Version:	4.6.3
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 #Source0Download: https://github.com/linuxmint/xreader/tags
 Source0:	https://github.com/linuxmint/xreader/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	188107ff58405f5ef479ad7f99436ed6
+# Source0-md5:	100229b2f2bb66b51c6b8063e34faddb
 # remove when we get kpathsea.pc in texlive
 Patch0:		%{name}-kpathsea-no-pc.patch
 Patch1:		%{name}-doc.patch
 Patch2:		%{name}-meson.patch
 URL:		https://github.com/linuxmint/xreader
-BuildRequires:	appstream-glib
 BuildRequires:	cairo-devel >= 1.14.0
 BuildRequires:	djvulibre-devel >= 3.5.17
 BuildRequires:	glib2-devel >= 1:2.36.0
@@ -233,7 +232,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING README.md debian/{changelog,copyright}
+%doc AUTHORS README.md debian/{changelog,copyright}
 %attr(755,root,root) %{_bindir}/xreader
 %attr(755,root,root) %{_bindir}/xreader-previewer
 %attr(755,root,root) %{_bindir}/xreader-thumbnailer
@@ -241,11 +240,11 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/xreader
 %dir %{_libdir}/xreader/3
 %dir %{_libdir}/xreader/3/backends
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libcomicsdocument.so
+%{_libdir}/xreader/3/backends/libcomicsdocument.so
 %{_libdir}/xreader/3/backends/comicsdocument.xreader-backend
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libpixbufdocument.so
+%{_libdir}/xreader/3/backends/libpixbufdocument.so
 %{_libdir}/xreader/3/backends/pixbufdocument.xreader-backend
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libtiffdocument.so
+%{_libdir}/xreader/3/backends/libtiffdocument.so
 %{_libdir}/xreader/3/backends/tiffdocument.xreader-backend
 %{_datadir}/xreader
 %{_datadir}/dbus-1/services/org.x.reader.Daemon.service
@@ -261,17 +260,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libxreaderdocument.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libxreaderdocument.so.3
-%attr(755,root,root) %{_libdir}/libxreaderview.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libxreaderview.so.3
+%{_libdir}/libxreaderdocument.so.*.*.*
+%ghost %{_libdir}/libxreaderdocument.so.3
+%{_libdir}/libxreaderview.so.*.*.*
+%ghost %{_libdir}/libxreaderview.so.3
 %{_libdir}/girepository-1.0/XreaderDocument-1.5.typelib
 %{_libdir}/girepository-1.0/XreaderView-1.5.typelib
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libxreaderdocument.so
-%attr(755,root,root) %{_libdir}/libxreaderview.so
+%{_libdir}/libxreaderdocument.so
+%{_libdir}/libxreaderview.so
 %{_includedir}/xreader
 %{_datadir}/gir-1.0/XreaderDocument-1.5.gir
 %{_datadir}/gir-1.0/XreaderView-1.5.gir
@@ -285,30 +284,30 @@ rm -rf $RPM_BUILD_ROOT
 
 %files backend-djvu
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libdjvudocument.so
+%{_libdir}/xreader/3/backends/libdjvudocument.so
 %{_libdir}/xreader/3/backends/djvudocument.xreader-backend
 
 %files backend-dvi
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libdvidocument.so
+%{_libdir}/xreader/3/backends/libdvidocument.so
 %{_libdir}/xreader/3/backends/dvidocument.xreader-backend
 
 %files backend-epub
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libepubdocument.so
+%{_libdir}/xreader/3/backends/libepubdocument.so
 %{_libdir}/xreader/3/backends/epubdocument.xreader-backend
 
 %files backend-pdf
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libpdfdocument.so
+%{_libdir}/xreader/3/backends/libpdfdocument.so
 %{_libdir}/xreader/3/backends/pdfdocument.xreader-backend
 
 %files backend-ps
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libpsdocument.so
+%{_libdir}/xreader/3/backends/libpsdocument.so
 %{_libdir}/xreader/3/backends/psdocument.xreader-backend
 
 %files backend-xps
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/xreader/3/backends/libxpsdocument.so
+%{_libdir}/xreader/3/backends/libxpsdocument.so
 %{_libdir}/xreader/3/backends/xpsdocument.xreader-backend
